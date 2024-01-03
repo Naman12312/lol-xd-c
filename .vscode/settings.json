@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "exercisearray.C": "cpp",
+        "stdarg.h": "c"
+    }
+}

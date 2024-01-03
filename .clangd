@@ -1,0 +1,4 @@
+If:
+  PathMatch: .*
+CompileFlags:
+  Add: [--query-driver=C:\\MinGW\\bin\\gcc.exe]
