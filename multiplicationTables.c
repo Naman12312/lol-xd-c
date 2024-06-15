@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     int end_point;
     printf("Enter the number you want multiplication table of: ");
     scanf("%d", &num);
-    printf("Enter the number till which you want the multiplication table to be printed: ");
+    printf("Enter the number until which you want the multiplication table to be printed: ");
     scanf("%d", &end_point);
     for(int i = 1; i<=end_point; i++){
         printf("%d * %d = %d\n", num, i, num*i);
