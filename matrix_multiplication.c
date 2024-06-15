@@ -5,9 +5,9 @@
 int main(){
 	int arr1[2][3] = {{1,2,3},
 		          {4,5,6}};
-	int arr2[3][2] = {{1,2}, 
-		          {3,4}, 
-			  {5,6}};
+	int arr2[3][3] = {{1,2,3}, 
+		          {3,4,7}, 
+			  {5,6,8}};
 	int rows1 = sizeof(arr1)/sizeof(arr1[0]);
 	int cols1 = sizeof(arr1[0])/sizeof(int);
 	int rows2 = sizeof(arr2)/sizeof(arr2[0]);
@@ -19,18 +19,18 @@ int main(){
 	printf("cols2: %d\n",cols2);
 	*/
 	int** arr0 = (int**)malloc(rows1*sizeof(int*));
-	for (int i = 0; i<2; i++) {
+	for (int i = 0; i<rows1; i++) {
 		arr0[i] = (int*)malloc(cols1*sizeof(int));
 	
 	}
 	int** arr00 = (int**)malloc(rows2*sizeof(int*));
-	for (int i = 0; i<3; i++) {
+	for (int i = 0; i<rows2; i++) {
 		arr00[i] = (int*)malloc(cols2*sizeof(int));
 	
 	}
 	
 
-	if(sizeof(arr1)/sizeof(arr1[0]) != sizeof(arr2[0])/sizeof(int)){
+	if(cols1 != rows2){
 		printf("These 2 matrices cannot be multiplied together.");
 		goto end;
 	
@@ -50,45 +50,32 @@ int main(){
 	
 	}
 	int** arr00T = T(arr00, rows2,cols2);
-	printf("[");
-
-	for (int i = 0; i<rows1; i++) {
-		printf("[");
-		for (int j = 0; j<cols1; j++) {
-			printf("%d ", arr00T[i][j]);
-		
-		}
-		printf("]");
-		}
-	
-	}
-	printf("]");
 	int** matMulArr = (int**)malloc(rows1*sizeof(int*));
 	for (int i = 0; i<2; i++) {
-		matMulArr[i] = (int*)malloc(cols2*sizeof(int));
+		matMulArr[i] = (int*)malloc(cols1*sizeof(int));
 
 	
 	}
 	printf("Memory has been allocated for matMulArray\n");
 	for (int i = 0; i<rows1; i++) {
 		for (int j = 0; j<cols2; j++) {
-			matMulArr[i][j] = dotProduct(arr0[i], arr00T[j], rows1);
+			matMulArr[i][j] = dotProduct(arr0[i], arr00T[j], cols1);
 		
 		}
 	
 	}
-	/*
+
 
 	printf("[");
 
 	for (int i = 0; i<rows1; i++) {
 		printf("[");
 		for (int j = 0; j<cols2; j++) {
-			printf((j!=1)?"%d ":"%d", matMulArr[i][j]);
+			printf((j!=(cols2-1))?"%d ":"%d", matMulArr[i][j]);
 		
 		}
 		printf("]");
-		if(i!=1){
+		if(i!=(rows1-1)){
 			
 		printf("\n");
 		printf(" ");
@@ -99,7 +86,7 @@ int main(){
 
 
 
-*/
+
 
 
 
