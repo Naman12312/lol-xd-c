@@ -3,11 +3,13 @@
 #include "./dotProductFunction.c"
 #include "./transposeOfMatrix.c"
 int main(){
-	int arr1[2][3] = {{1,2,3},
-		          {4,5,6}};
-	int arr2[3][4] = {{1,2,3,8}, 
-		          {3,4,7,9}, 
-			  {5,6,8,11}};
+	int arr1[3][4] = {{1,2,3,4},
+			  {5,6,7,8},
+		          {9,10,11,12}};
+	int arr2[4][5] = {{13,14,15,16,17},
+			  {18,19,20,21,22},
+			  {23,24,25,26,27},
+	                  {28,29,30,31,32}};
 	int rows1 = sizeof(arr1)/sizeof(arr1[0]);
 	int cols1 = sizeof(arr1[0])/sizeof(int);
 	int rows2 = sizeof(arr2)/sizeof(arr2[0]);
