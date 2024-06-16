@@ -3,6 +3,7 @@
 #include "./dotProductFunction.c"
 #include "./transposeOfMatrix.c"
 int main(){
+	//d
 	int arr1[2][3] = {{1,2,3},
 		          {4,5,6}};
 	int arr2[3][3] = {{1,2,3}, 
