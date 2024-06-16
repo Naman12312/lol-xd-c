@@ -14,15 +14,16 @@ int main(){
 	int rows2;
 	int cols2;
 	printf("Enter the number of rows in first matrix: \n");
-	scanf("%d", &rows1);
+	scanf(" %d", &rows1);
 	
 	printf("Enter the number of columns in first matrix: \n");
-	scanf("%d", &cols1);
+	scanf(" %d", &cols1);
 	printf("Enter the number of rows in second matrix: \n");
-	scanf("%d", &rows2);
+	scanf(" %d", &rows2);
 	
 	printf("Enter the number of columns in second matrix: \n");
-	scanf("%d", &cols2);
+	scanf(" %d", &cols2);
+
 	/*
 	printf("rows1: %d\n",rows1);
 	printf("cols1: %d\n",cols1);
@@ -48,22 +49,25 @@ int main(){
 	}
 	for (int i = 0; i<rows1; i++) {
 		for (int j = 0; j<cols1; j++) {
-			arr0[i][j] = arr1[i][j];
+			printf("Enter matrix1[%d][%d]:\n", i,j);
+			scanf(" %d", &arr0[i][j]);
 		
 		}
 	
 	}
+	printf("H");
 	for (int i = 0; i<rows2; i++) {
 		for (int j = 0; j<cols2; j++) {
-			arr00[i][j] = arr2[i][j];
+			printf("Enter matrix2[%d][%d]:\n", i,j);
+			scanf(" %d", &arr00[i][j]);
 		
 		}
 	
 	}
 	int** arr00T = T(arr00, rows2,cols2);
 	int** matMulArr = (int**)malloc(rows1*sizeof(int*));
-	for (int i = 0; i<2; i++) {
-		matMulArr[i] = (int*)malloc(cols1*sizeof(int));
+	for (int i = 0; i<rows1; i++) {
+		matMulArr[i] = (int*)malloc(cols2*sizeof(int));
 
 	
 	}
