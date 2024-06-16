@@ -9,10 +9,20 @@ int main(){
 	int arr2[3][3] = {{1,2,3}, 
 		          {3,4,7}, 
 			  {5,6,8}};
-	int rows1 = sizeof(arr1)/sizeof(arr1[0]);
-	int cols1 = sizeof(arr1[0])/sizeof(int);
-	int rows2 = sizeof(arr2)/sizeof(arr2[0]);
-	int cols2 = sizeof(arr2[0])/sizeof(int);
+	int rows1;
+	int cols1;
+	int rows2;
+	int cols2;
+	printf("Enter the number of rows in first matrix: \n");
+	scanf("%d", &rows1);
+	
+	printf("Enter the number of columns in first matrix: \n");
+	scanf("%d", &cols1);
+	printf("Enter the number of rows in second matrix: \n");
+	scanf("%d", &rows2);
+	
+	printf("Enter the number of columns in second matrix: \n");
+	scanf("%d", &cols2);
 	/*
 	printf("rows1: %d\n",rows1);
 	printf("cols1: %d\n",cols1);
