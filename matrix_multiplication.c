@@ -5,13 +5,18 @@
 int main(){
 	int arr1[2][3] = {{1,2,3},
 		          {4,5,6}};
-	int arr2[3][3] = {{1,2,3}, 
-		          {3,4,7}, 
-			  {5,6,8}};
+	int arr2[3][4] = {{1,2,3,8}, 
+		          {3,4,7,9}, 
+			  {5,6,8,11}};
 	int rows1 = sizeof(arr1)/sizeof(arr1[0]);
 	int cols1 = sizeof(arr1[0])/sizeof(int);
 	int rows2 = sizeof(arr2)/sizeof(arr2[0]);
 	int cols2 = sizeof(arr2[0])/sizeof(int);
+	if(cols1 != rows2){
+		printf("These 2 matrices cannot be multiplied together.");
+		goto end;
+	
+	}
 	/*
 	printf("rows1: %d\n",rows1);
 	printf("cols1: %d\n",cols1);
@@ -30,11 +35,6 @@ int main(){
 	}
 	
 
-	if(cols1 != rows2){
-		printf("These 2 matrices cannot be multiplied together.");
-		goto end;
-	
-	}
 	for (int i = 0; i<rows1; i++) {
 		for (int j = 0; j<cols1; j++) {
 			arr0[i][j] = arr1[i][j];
@@ -51,8 +51,8 @@ int main(){
 	}
 	int** arr00T = T(arr00, rows2,cols2);
 	int** matMulArr = (int**)malloc(rows1*sizeof(int*));
-	for (int i = 0; i<2; i++) {
-		matMulArr[i] = (int*)malloc(cols1*sizeof(int));
+	for (int i = 0; i<rows1; i++) {
+		matMulArr[i] = (int*)malloc(cols2*sizeof(int));
 
 	
 	}
@@ -88,6 +88,23 @@ int main(){
 
 
 
+
+	for (int i = 0; i<rows1; i++) {
+		free(arr0[i]);
+	
+	}
+	for (int i = 0; i<rows2; i++) {
+		free(arr00[i]);
+	
+	}
+	for (int i = 0; i<cols2; i++) {
+		free(arr00T[i]);
+	
+	}
+	for (int i = 0; i<rows1; i++) {
+		free(matMulArr[i]);
+	
+	}
 
 
 end:
