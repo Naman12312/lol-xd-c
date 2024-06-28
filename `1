@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+char* getTextContent(FILE* ptr){
+	char ch;
+	char* str;
+	int i = 0;
+	do{
+		ch = fgetc(ptr);
+		str[i] = ch;
+		i++;
+	}while(ch!=EOF);
+	return str;
+}
+
+int main(){	
+	FILE* ptr = NULL;
+	ptr = fopen("letter.txt", "r");
+	char * str = getTextContent(ptr);
+	printf("%s", str);
+
+
+
+
+
+
+
+
+
+	return 0;
+}
